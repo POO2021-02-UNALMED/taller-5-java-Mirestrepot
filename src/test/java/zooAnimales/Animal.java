@@ -3,7 +3,6 @@ package zooAnimales;
 import java.util.ArrayList;
 import gestion.Zona;
 
-
 public class Animal {
 	private int totalAnimales;
 	private String nombre;
@@ -14,7 +13,7 @@ public class Animal {
 	
 	public Animal() {
 		totalAnimales += 1;
-
+		zona = new ArrayList<Zona>();
 	}
 	public Animal(String nombre,int edad,String habitat,String genero) {
 		this.totalAnimales += 1;
@@ -23,6 +22,12 @@ public class Animal {
 		this.habitat = habitat;
 		this.genero = genero;
 	}
+	public static String totalPorTipo() {
+		return  "Mamiferos: "+Mamifero.Mamiferos()+"\n"+   
+				"Aves: "+Ave.Aves()+"\n"+
+				"Reptiles: "+Reptil.Reptiles()+"\n"+
+				"Peces: "+Pez.Peces()+"\n"+
+				"Anfibios: "+Anfibio.Anfibios();
 
 	}
 	public String getNombre() {
@@ -49,7 +54,9 @@ public class Animal {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-
+	@Override
+	public String toString() {
+		return "Mi nombre es "+nombre+", tengo una edad de "+edad+", habito en "+habitat+" y mi genero es "+genero;
 	}
 	public String movimiento() {
 		return "desplazarse";

@@ -49,8 +49,7 @@ public class Animal {
 	public String movimiento() {
 		return "desplazarse";
 	}
-	
-	// get and set
+
 	public static int getTotalAnimales() {
 		return totalAnimales;
 	}

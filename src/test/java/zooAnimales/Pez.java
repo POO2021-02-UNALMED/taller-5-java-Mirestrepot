@@ -9,42 +9,53 @@ public class Pez extends Animal{
 	private String colorEscamas;
 	private int cantidadAletas;
 	
-	public Pez() {
+	public Pez(String nombre, int edad, String habitat, String genero, String color, int aletas) {
+		this.setNombre(nombre);
+		this.setEdad(edad);
+		this.setHabitat(habitat);
+		this.setGenero(genero);
+		this.setColorEscamas(color);
+		this.setCantidadAletas(aletas);
+		setTotalAnimales(getTotalAnimales() + 1);
 		listado.add(this);
-		
+	}
+	public Pez() {
+		setTotalAnimales(getTotalAnimales() + 1);
+		listado.add(this);
 	}
 	
-	public Pez(String nombre,int edad,String habitat,String genero,String colorEscamas,int cantidadAletas) {
-		this.setEdad(edad);
-		this.setGenero(genero);
-		this.setHabitat(habitat);
-		this.setNombre(nombre);
-		this.colorEscamas = colorEscamas;
-		this.cantidadAletas = cantidadAletas;
-		listado.add(this);
-		
+	static public int cantidadPeces() {
+		return listado.size();
 	}
-	public String getColorEscamas() {
-		return colorEscamas;
-	}
-	public int getCantidadAletas() {
-		return cantidadAletas;
-	}
-	public static int cantidadPeces() {
-		return bacalaos+salmones;
-	}
-	public static Pez crearBacalao(String nombre,int edad,String genero) {
-		bacalaos += 1;
-		return new Pez(nombre,edad,"oceano",genero,"gris",6);
-	}
-	public static Pez crearSalmon(String nombre,int edad,String genero) {
-		salmones += 1;
-		return new Pez(nombre,edad,"oceano",genero,"rojo",6);
-}
+	
+	@Override
 	public String movimiento() {
 		return "nadar";
 	}
-	public static int Peces() {
-		return listado.size();
+	
+	static public Pez crearSalmon(String nombre, int edad, String genero) {
+		salmones++;
+		return new Pez(nombre, edad, "oceano",genero,"rojo", 6);
+	}
+	
+	static public Pez crearBacalao(String nombre, int edad, String genero) {
+		bacalaos++;
+		return new Pez(nombre, edad, "oceano",genero,"gris", 6);
+	}
+
+	public String getColorEscamas() {
+		return colorEscamas;
+	}
+
+	public void setColorEscamas(String colorEscamas) {
+		this.colorEscamas = colorEscamas;
+	}
+
+	public int getCantidadAletas() {
+		return cantidadAletas;
+	}
+
+	public void setCantidadAletas(int cantidadAletas) {
+		this.cantidadAletas = cantidadAletas;
 	}
 }

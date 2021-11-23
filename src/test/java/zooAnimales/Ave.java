@@ -1,4 +1,4 @@
-public package zooAnimales;
+package zooAnimales;
 
 import java.util.ArrayList;
 
@@ -39,8 +39,6 @@ public class Ave extends Animal{
 		aguilas++;
 		return new Ave(nombre, edad, "montanas",genero,"blanco y amarillo");
 	}
-	
-	// get y set
 	public static ArrayList<Ave> getListado() {
 		return listado;
 	}
@@ -55,6 +53,4 @@ public class Ave extends Animal{
 	}
 	
 	
-}class Ave {
-    
 }
